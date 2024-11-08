@@ -6,7 +6,7 @@ const destinations = reactive(sourceData.destinations);
 </script>
 
 <template> 
-    <h1 class="text-4xl text-indigo-700">Homepage</h1>
+
     <RouterLink
         v-for="destination in destinations"
         :key="destination.id"
