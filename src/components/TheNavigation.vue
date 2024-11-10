@@ -1,10 +1,20 @@
+<script setup>
+import { reactive } from 'vue';
+import sourceData from '@/data.json';
+
+const destinations = reactive(sourceData.destinations);
+</script>
+
 <template>
     <div id="nav">
-        <RouterLink to="/">Travel App</RouterLink> 
-        <RouterLink to="/brazil">Brazil</RouterLink>
-        <RouterLink to="/jamaica">Jamaica</RouterLink>
-        <RouterLink to="/hawaii">Hawaii</RouterLink>
-        <RouterLink to="/panama">Panama</RouterLink>
+        <RouterLink id="logo" to="/">Travel App</RouterLink>
+        <RouterLink
+            v-for="destination in destinations"
+            :key="destination.id"
+            :to="{name: 'destination.show', params: {id: destination.id}}"
+        >
+            {{ destination.name }}
+        </RouterLink>
     </div>
 </template>
 
